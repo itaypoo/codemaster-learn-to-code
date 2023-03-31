@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --primary: #1e74f1;
+  --primary-focused: #085bd5;
+  --primary-light: rgba(134, 180, 255, 0.72);
+  --gray: #8f8f8f;
+}
+
+body {
+  margin: 0
+}
+
+* {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  margin: 0
+}
+
+/*
+----  Button  ---------------------
+*/
+
+button {
+  background-color: var(--primary);
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+button:hover {
+  background-color: var(--primary-focused);
+}
+
+button:active {
+  background-color: var(--primary);
+}
+
+button.big {
+  padding: 0.9rem 1.4rem;
+}
+
+button:disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
+/*
+----  Outlined Button  ---------------------
+*/
+
+button.outlined {
+  background-color: transparent;
+  outline: 1px solid var(--primary);
+  padding: calc(0.6rem - 1px) calc(1rem - 1px);
+  border: none;
+  border-radius: 50px;
+  color: var(--primary);
+  cursor: pointer;
+  outline-offset: 0;
+  transition: 150ms;
+}
+
+button.outlined:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+button.outlined:active {
+  background-color: var(--primary-focused);
+}
+
+button.outlined:disabled {
+  background-color: transparent;
+  color: var(--gray);
+  outline: 1px solid var(--gray);
+  cursor: not-allowed;
+
+}
+
+/*
+----  Button Group  ---------------------
+*/
+
+div.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+/*
+----  Input  ---------------------
+*/
+
+input {
+  padding: 0.7rem 0.7rem;
+  border-radius: 50px;
+  border: 1px solid var(--gray);
+  transition: 50ms;
+}
+
+
+input:focus {
+  border: 1px solid var(--primary-focused);
+  outline: none;
+  box-shadow: 0 0 0 4px var(--primary-light);
+  animation: glow-in 100ms;
+}
+
+input:not(:focus) {
+  animation: glow-out 100ms;
+}
+
+@keyframes glow-in {
+  from {
+    box-shadow: 0 0 0 0 var(--primary-light);
+  }
+  to {
+    box-shadow: 0 0 0 4px var(--primary-light);
+  }
+}
+
+@keyframes glow-out {
+  from {
+    box-shadow: 0 0 0 4px var(--primary-light);
+  }
+  to {
+    box-shadow: 0 0 0 0 var(--primary-light);
+  }
+}
+
+/*
+----  Input Label  ---------------------
+*/
+
+div.input-label {
+  position: relative;
+}
+div.input-label input {
+  width: calc(100% - 2 * 0.7rem);
+}
+div.input-label label {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  transition: 100ms;
+  color: var(--gray);
+  pointer-events: none;
+}
+
+div.input-label:has(input:not(:placeholder-shown)) label,
+div.input-label:has(textarea:not(:placeholder-shown)) label,
+div.input-label:focus-within label
+{
+  color: black;
+  top: -6px;
+  right: 20px;
+  padding: 0 5px;
+  font-size: 13px;
+  background-color: white;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: transparent;
+}
+input::-ms-input-placeholder { /* Microsoft Edge */
+  color: transparent;
+}
+
+/*
+----  Text Area  ---------------------
+*/
+
+textarea {
+  width: calc(100% - 2 * 0.7rem);
+  padding: 0.7rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid var(--gray);
+  transition: 50ms;
+  resize: vertical;
+  min-height: 85px;
+}
+
+textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: transparent;
+}
+textarea::-ms-input-placeholder { /* Microsoft Edge */
+  color: transparent;
+}
+
+textarea:focus {
+  border: 1px solid var(--primary-focused);
+  outline: none;
+  box-shadow: 0 0 0 4px var(--primary-light);
+  animation: glow-in 100ms;
+}
+
+textarea:not(:focus) {
+  animation: glow-out 100ms;
+}
+
+@keyframes glow-in {
+  from {
+    box-shadow: 0 0 0 0 var(--primary-light);
+  }
+  to {
+    box-shadow: 0 0 0 4px var(--primary-light);
+  }
+}
+
+@keyframes glow-out {
+  from {
+    box-shadow: 0 0 0 4px var(--primary-light);
+  }
+  to {
+    box-shadow: 0 0 0 0 var(--primary-light);
+  }
+}
+
+/*
+----  Card  ---------------------
+*/
+
+div.card {
+  outline: 1px solid var(--gray);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+div.card .card-title {
+  font-size: 1.7rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+/*
+----  Clickable Card  ---------------------
+*/
+
+div.card.clickable {
+  background-color: var(--primary);
+  outline: none;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+div.card.clickable:hover {
+  background-color: var(--primary-focused);
+  outline: none;
+}
+
+div.card.clickable * {
+  color: white;
+}
+
+div.card.clickable button {
+  background-color: white;
+  color: var(--primary);
+}
+
+div.card.clickable button.outlined {
+  background-color: transparent;
+  outline: 1px solid white;
+  color: white;
+}
+
+/*
+----  Link  ---------------------
+*/
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-focused);
+}
+
+/*
+----  Switch  ---------------------
+*/
+
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background-color: var(--gray);
+  border-radius: 50px;
+  transition: 100ms;
+  cursor: pointer;
+}
+
+.switch input {
+  height: 0;
+  width: 0;
+  box-shadow: none;
+  animation: none;
+}
+.switch input:focus {
+  box-shadow: none;
+  animation: none;
+}
+
+.switch .slider {
+  left: 3px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 100ms;
+  animation: none;
+}
+.switch:active .slider {
+  transform: scale(1.2);
+}
+
+.switch input:checked + .slider {
+  left: 27px;
+  animation: 100ms slider-move;
+}
+
+.switch:has(input:checked) {
+  background-color: var(--primary);
+}
+
+@keyframes slider-move {
+  0% {
+    scale: 1 1;
+  }
+
+  50% {
+    scale: 1.5 1;
+  }
+
+  100% {
+    scale: 1 1 ;
+  }
+}
+
+.switch-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 26px;
+}
+
+.switch-area p {
+  margin-left: 10px;
+}
+
+/*
+----  Code Block  ---------------------
+*/
+
+pre.code-block {
+  background-color: #101215;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+pre.code-block code {
+  font-family: "Cascadia Code", monospace;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+/*
+----  Dropdown menu  ---------------------
+ */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  left: 10px;
+  display: none;
+  position: absolute;
+  background-color: #1f1f1f;
+  min-width: 200px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 15px 15px 15px 15px;
+  transition: 100ms;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  animation: dropdown-show 100ms forwards;
+}
+
+.dropdown .has-dropdown {
+  border-radius: 15px;
+}
+.dropdown:hover .has-dropdown {
+  border-radius: 15px 15px 0 0;
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+}
+
+.dropdown-content a {
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
+  transition: 100ms;
+}
+.dropdown-content a:hover {
+  background-color: #32353b;
+
+}
+
+@keyframes dropdown-show {
+  from {
+    border-radius: 15px 15px 15px 15px;
+    translate: 0 10px;
+    opacity: 0;
+  }
+
+  to {
+    border-radius: 0 15px 15px 15px;
+    opacity: 1;
+  }
+}
+
+/*
+----  Skeleton  ---------------------
+ */
+
+div.skeleton {
+  animation: skeleton-shimmer 0.5s forwards infinite ease-in-out;
+}
+
+span.skeleton {
+  color: transparent !important;
+  border-radius: 10px;
+  animation: skeleton-shimmer 0.5s forwards infinite ease-in-out;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-color: rgba(224, 224, 224, 0.35);
+  }
+  50% {
+    background-color: rgba(203, 203, 203, 0.25);
+  }
+  100% {
+    background-color: rgba(224, 224, 224, 0.35);
+  }
+}
+
+/*
+----  Markdown  ---------------------
+*/
+
+div.markdown * {
+  all: revert;
+}

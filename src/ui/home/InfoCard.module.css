@@ -1,0 +1,42 @@
+.infoCard {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    width: 25vw;
+    height: auto;
+    background-color: #17171F;
+    outline: none !important;
+}
+
+.infoCard *{
+    color: white;
+}
+.infoCard h1 {
+    font-weight: bold !important;
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer span {
+    font-size: 500%;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1600px) {
+    .infoCard {
+        width: 27vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .infoCard {
+        width: calc(100% - 40px);
+    }
+}

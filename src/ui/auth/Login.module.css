@@ -1,0 +1,30 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.formTitle {
+    margin-bottom: 35px !important;
+}
+
+.mainForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mainCard {
+    width: min(70%, 500px);
+    background-color: white;
+}
+
+.siteTitle {
+    margin-top: 30px;
+    color: var(--primary);
+    font-size: 50px;
+}
